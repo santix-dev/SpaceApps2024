@@ -99,7 +99,7 @@ class DatosClimaticos:
                 "unidad": "°C"
             },
             "humedad relativa": {
-                "valor": temperatura_celsius,
+                "valor": humedad_punto_rocio_celsius,
                 "unidad": "°C"
             }
         }
