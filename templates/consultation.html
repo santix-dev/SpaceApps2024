@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style1.css">
+</head>
+<body>
+    <header><h1>AgroMate</h1></header>
+    <form class="form">
+        
+        <p type="Location:"><input type="text" id="ubicacion" name="ubicacion" readonly required></p>
+        <div class="container"><button type="button" onclick="getLocation()">Obtener Ubicación</button></div>
+        <p type="Crop Name:"><input placeholder=""></p>
+        <p type="Crop Type:"><input placeholder=""></p>
+        <p type="Plantation Date:"><input type="date" placeholder=""></p>
+        <div class="container"><button>Send Message</button></div>
+        
+
+        
+    </form>
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("La geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            document.getElementById("ubicacion").value = lat + ", " + lon;
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("Usuario denegó el permiso para la geolocalización.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("La información de ubicación no está disponible.");
+                    break;
+                case error.TIMEOUT:
+                    alert("La solicitud para obtener la ubicación ha expirado.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Ha ocurrido un error desconocido.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

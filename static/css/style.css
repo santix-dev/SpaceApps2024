@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    background:#C57B57;
+}
+
+
+
+header {
+    margin-top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #041F1E;
+}
+
+header h1 {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    justify-content: center;
+    color: #F7DBA7;
+    font-size: 72px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+

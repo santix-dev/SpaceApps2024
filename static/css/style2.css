@@ -1,0 +1,31 @@
+.tabla {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    overflow: hidden;
+
+    width:90%;
+    height:70vh;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    margin:20px 5%;
+    padding:10px 10px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+
+}
+
+.fila {
+    display: contents; /* Permite que los elementos hijos sean directos del grid */
+}
+
+.item {
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.encabezado .item{
+    font-weight: bold;
+}
