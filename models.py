@@ -7,10 +7,6 @@ class Usuario(db.Model):
 	id_usuario=db.Column(db.Integer,primary_key=True)
 	correo=db.Column(db.String(50),nullable=False)
 
-
-
-
-
 class Cultivo(db.Model):
      __tablename__="cultivo"
      nombre_cultivo=db.Column(db.String(50),nullable=False)
