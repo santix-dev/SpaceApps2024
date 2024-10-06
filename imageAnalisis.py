@@ -9,10 +9,12 @@ class DatosClimaticos:
         self.__datos=self.distintasFuentes()
         return
 
-    def distintasFuentes(self,coordenadas=[[[-124.48, 32.53], [-124.48, 42.01], [-114.13, 42.01], [-114.13, 32.53]]]):
+    def distintasFuentes(self,coo1=[-31.537657, -68.530436],coo2=[-31.533055, -68.536174],coo3=[-31.538011, -68.515829]):
 
         area_de_california = ee.Geometry.Polygon(
-            [[[-124.48, 32.53], [-124.48, 42.01], [-114.13, 42.01], [-114.13, 32.53]]]
+            # [[[-124.48, 32.53], [-124.48, 42.01], [-114.13, 42.01], [-114.13, 32.53]]]
+            # coordenadas
+            [[coo1,coo2,coo3]]
         )
 
         # Filtrar por el rango de fechas
@@ -89,7 +91,6 @@ class DatosClimaticos:
             humedad_relativa_porcentaje = 0  # Manejar el caso donde no hay datos
 
         # Imprimir el resultado
-        # print(f"Humedad relativa: {humedad_relativa_porcentaje:.2f}%")
         # Convertir la temperatura a Celsius
         temperatura_celsius = temperatura - 273.15
         humedad_punto_rocio_celsius = humedad_relativa - 273.15
@@ -105,6 +106,7 @@ class DatosClimaticos:
         }
         print(f"Temperatura: {temperatura_celsius} °C")
         print(f"Humedad relativa (punto de rocío): {humedad_punto_rocio_celsius} °C")
+        print(f"Humedad relativa: {humedad_relativa_porcentaje:.2f}%")
         print(f"Radiación solar: {radiacion_solar} W/m²")
         print(f"Velocidad del viento (u, v): {viento_u} m/s, {viento_v} m/s")
         print(f"Precipitaciones: {precipitaciones} mm")
