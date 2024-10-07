@@ -47,6 +47,8 @@ class Plantacion(db.Model):
     id_cultivo=db.Column(db.Integer,db.ForeignKey("cultivo.id_cultivo"))
     fecha_plantacion=db.Column(db.Date,nullable=False)
     coordenadas=db.Column(db.String(22),nullable=False)
+    usuario=db.relationship("Usuario",backref="Plantacion")
+    cultivo=db.relationship("Cultivo",backref="Plantacion")
     
 with app.app_context():
     db.create_all()

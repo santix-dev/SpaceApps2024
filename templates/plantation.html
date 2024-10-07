@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/style1.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <div>
+            <img class="profileimg" src="{{ url_for('static',filename='images/profile.png') }}" alt="profile image">
+        </div>
+        <div>
+            <h1>Usuario</h1>
+        </div>
+    </header>
+    
+    <div class="form">
+        <p class="nombrecultivo">{{plantacion.variedad}}</p>
+        <p class="location">{{plantacion.ubicacion}}</p>
+        <p class="Real time Temperature">27°C</p>
+        
+    </div>
+
+    <div class="form">
+        <p>resumen</p>
+        <pre>{{plantacion.recomendacion}}</pre>
+        
+    </div>
+    <!-- <a href="/plantation?plantation=2">
+        <form class="form" method="post">
+            <p type="Crop Name:"><input placeholder="" name="cropName"></p>
+            <p type="Plantation Date:"><input type="date" name="date" placeholder=""></p>
+            <div class="container"><button>Send Message</button></div>
+        </form>
+    </a> -->
+
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("La geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        function showPosition(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            document.getElementById("ubicacion").value = lat + ", " + lon;
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("Usuario denegó el permiso para la geolocalización.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("La información de ubicación no está disponible.");
+                    break;
+                case error.TIMEOUT:
+                    alert("La solicitud para obtener la ubicación ha expirado.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Ha ocurrido un error desconocido.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

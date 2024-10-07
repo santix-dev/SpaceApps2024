@@ -8,7 +8,16 @@
     <link href="{{ url_for('static',filename='css/style1.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header><h1>AgroMate</h1></header>
+    <header>
+        <div>
+
+            <img class="profileimg" src="{{ url_for('static',filename='images/profile.png') }}" alt="profile image">
+        </div>
+        <div>
+
+            <h1>Usuario</h1>
+        </div>
+    </header>
     <form class="form" method="post" action="/create_crop">
         
         <p type="Location:"><input type="text" id="ubicacion" name="ubicacion" readonly required></p>
