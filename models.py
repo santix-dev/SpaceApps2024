@@ -17,8 +17,8 @@ class Etapa(db.Model):
     __tablename__="etapa"
     id_etapa=db.Column(db.Integer,primary_key=True)
     nombre_etapa=db.Column(db.String(50),nullable=False)
-    dia_inicio=db.Column(db.Integer,nullable=False)
-    dia_fin=db.Column(db.Integer,nullable=False)
+    descripcion=db.Column(db.String(50),nullable=False)
+    nec_hid=db.Column(db.String(20),nullable=False)
         
 class Ideales(db.Model):
     
@@ -37,7 +37,8 @@ class EtapaCultivo(db.Model):
     id_etapa_cultivo=db.Column(db.Integer,primary_key=True)
     id_etapa=db.Column(db.Integer,db.ForeignKey("etapa.id_etapa"))
     id_cultivo=db.Column(db.Integer,db.ForeignKey("cultivo.id_cultivo"))
-    nec_hid=db.Column(db.String(20),nullable=False)
+    dia_inicio=db.Column(db.Integer,nullable=False)
+    dia_fin=db.Column(db.Integer,nullable=False)
 
 class Plantacion(db.Model):
     __tablename__="plantacion"
@@ -47,3 +48,5 @@ class Plantacion(db.Model):
     fecha_plantacion=db.Column(db.Date,nullable=False)
     coordenadas=db.Column(db.String(22),nullable=False)
     
+with app.app_context():
+    db.create_all()

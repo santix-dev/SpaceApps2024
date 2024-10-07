@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/style1.css">
+    <link href="{{ url_for('static',filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='css/style1.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header><h1>AgroMate</h1></header>
-    <form class="form">
+    <form class="form" method="post" action="/create_crop">
         
         <p type="Location:"><input type="text" id="ubicacion" name="ubicacion" readonly required></p>
-        <div class="container"><button type="button" onclick="getLocation()">Obtener Ubicación</button></div>
-        <p type="Crop Name:"><input placeholder=""></p>
-        <p type="Crop Type:"><input placeholder=""></p>
-        <p type="Plantation Date:"><input type="date" placeholder=""></p>
+        <div class="container"><button type="button" onclick="getLocation()">Get Location</button></div>
+        <p type="Crop Name:"><input placeholder="" name="cropName"></p>
+        <p type="Crop Type:"><input placeholder="" name="cropType"></p>
+        <p type="Plantation Date:"><input type="date" name="date" placeholder=""></p>
         <div class="container"><button>Send Message</button></div>
         
 
